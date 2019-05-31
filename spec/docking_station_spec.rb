@@ -1,46 +1,32 @@
 require 'docking_station'
-require 'bike'
-
-#describe DockingStation do
-#  it 'responds to release bike method' do
-#    expect(subject).to respond_to :release_bike
-#  end
-#end
 
 describe DockingStation do
+#  it { is_expected.to respond_to :release_bike}
 
-  describe '#dock' do
-    it 'raises an error when full' do
-      subject.dock(Bike.new)
-      expect { subject.dock Bike.new }.to raise_error 'Docking station full'
+  describe '#release_bike' do
+    it "doesn't give out a bike if there's none" do
+      expect { subject.release_bike }.to raise_error "bike not present"
     end
   end
 
-#  it { is_expected.to respond_to :release_bike }
-
-#it 'gets a bike' do
-#  bike = subject.release_bike
-#  expect(bike.working?).to eq true
-#end
-
 #  it { is_expected.to respond_to(:dock).with(1).argument }
 
-  it 'docks something' do
-    bike = Bike.new
-    expect(subject.dock(bike)).to eq bike
-  end
+#  it { is_expected.to respond_to(:bike)}
 
-#  it { is_expected.to respond_to(:bike) }
+  describe '#dock' do
+    it 'docks a bike' do
+      all_bikes = []
+      bike = Bike.new
+      all_bikes = subject.dock(bike)
+      expect(subject.bike).to eq all_bikes
+    end
 
-  it 'returns bike' do
-    bike = Bike.new
-    subject.dock(bike)
-    expect(subject.bike).to eq bike
-  end
+    it 'can store up to 20 bikes' do
+      expect( 20.times { subject.dock(Bike.new)}).to eq 20
+    end
 
-  describe '#release_bike' do
-    it 'raises an error when there are no bikes available' do
-      expect { subject.release_bike }.to raise_error 'No bikes available'
+    it 'returns error when more than 20 bikes' do
+      expect { 21.times {subject.dock(Bike.new)}}.to raise_error "Docking station full"
     end
   end
 end

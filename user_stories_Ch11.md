@@ -18,7 +18,7 @@ I want to see a bike that has been docked
 ## Verbs
 1. return
 2. dock
-3.
+
 
 Objects | Messages
 -------- | --------

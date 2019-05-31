@@ -1,25 +1,19 @@
+
 require_relative 'bike'
 
 class DockingStation
-#  bike_capacity_full = false
-
-  # if bike_capacity_full = true
-  #  return "no more bikes can be stored"
-  # else
-  #  subject.dock(bike)e
   attr_reader :bike
+  def initialize
+    @bike = []
+  end
 
   def release_bike
-    fail 'No bikes available' unless @bike
-    @bike
+    fail "bike not present" if @bike.empty?
+    @bike.shift
   end
 
-  def dock(bike)
-    fail 'Docking station full' if @bike
-    @bike = bike
+  def dock (bike)
+    fail "Docking station full" if @bike.count == 20
+    @bike << bike
   end
-
-#  def bike
-#    @bike
-#  end
 end

@@ -1,6 +1,5 @@
-# Boris bikes challenge 
+# Boris bikes challenge
 
-_pairing: Anna & Rachel_
 
 ## Goals:
 
@@ -20,9 +19,9 @@ _pairing: Anna & Rachel_
 - [x] Back to the unit
 - [x] Building a bike
 - [x] Making Docking Stations get Bikes
-- [ ] Using Instance Variables
-- [ ] Raising Exceptions
-- [ ] Limiting Capacity
+- [x] Using Instance Variables
+- [x] Raising Exceptions
+- [x] Limiting Capacity
 - [ ] Using Complex Attributes
 - [ ] The Single Responsibility Principle
 - [ ] Removing Magic Numbers
@@ -39,6 +38,6 @@ _pairing: Anna & Rachel_
 - structure of user story
 - stack trace -> list of method calls that the program was in the middle of when an Exception was thrown
 - initialising the object in irb, as a nil object, solves the uninitialised constant error
-- initialising rspec - added lib directory manually, added the first test file in the spec directory, ran rspec to confirm all is green/setup was successful 
+- initialising rspec - added lib directory manually, added the first test file in the spec directory, ran rspec to confirm all is green/setup was successful
 - Rspec - use the 'subject' keyword to test instances of class (describe block contains class/object name which is the subject, similar to self)
 - single-line Rspec syntax
