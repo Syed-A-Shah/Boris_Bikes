@@ -22,9 +22,9 @@
 - [x] Using Instance Variables
 - [x] Raising Exceptions
 - [x] Limiting Capacity
-- [ ] Using Complex Attributes
-- [ ] The Single Responsibility Principle
-- [ ] Removing Magic Numbers
+- [x] Using Complex Attributes
+- [x] The Single Responsibility Principle
+- [x] Removing Magic Numbers
 - [ ] Initialization Defaults
 - [ ] Dealing with Broken Bikes
 - [ ] Isolating Tests with Doubles

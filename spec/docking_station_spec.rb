@@ -4,8 +4,14 @@ describe DockingStation do
 #  it { is_expected.to respond_to :release_bike}
 
   describe '#release_bike' do
-    it "doesn't give out a bike if there's none" do
+    it "no bikes available" do
       expect { subject.release_bike }.to raise_error "bike not present"
+    end
+
+    it "no error when bike available" do
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.release_bike).to eq bike
     end
   end
 
@@ -21,12 +27,13 @@ describe DockingStation do
       expect(subject.bike).to eq all_bikes
     end
 
-    it 'can store up to 20 bikes' do
-      expect( 20.times { subject.dock(Bike.new)}).to eq 20
+    it 'can store up to X bikes' do
+      expect( DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new)}).to eq DockingStation::DEFAULT_CAPACITY
     end
 
-    it 'returns error when more than 20 bikes' do
-      expect { 21.times {subject.dock(Bike.new)}}.to raise_error "Docking station full"
+    it 'returns error when more than X bikes' do
+      expect { (DockingStation::DEFAULT_CAPACITY+1).times {subject.dock(Bike.new)}}.to raise_error "Docking station full"
     end
   end
-end
+
+  end
